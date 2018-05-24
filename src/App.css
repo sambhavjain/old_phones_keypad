@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#phone button{
+    height: 50px;
+    width: 75px;
+}
+#phone button span{
+    display: block;
+    margin-top: 5px;
+    font-size: 10px;
+}
+#result{
+    width: 225px;
+    height: 25px;
+    margin-left:2px;
+}
