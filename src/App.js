@@ -43,15 +43,15 @@ class App extends Component {
         tempString = tempKeyValue.slice(0,-1).concat(value[prevKeyIndex])
         index = prevKeyIndex + 1
       
-      } else if(tempKeyValue.length >0 && value[prevKeyIndex] && key != prevKey){
+      } else if(tempKeyValue.length > 0 && value[0] != undefined && key != prevKey){
         tempString = tempKeyValue.concat(value[0])
-        index = 0
+        index = 1
       
       } else if(tempKeyValue.length == 0 && result.length == 0){
         tempString = value[prevKeyIndex]
         index = prevKeyIndex + 1
 
-      } else if(tempKeyValue.length == 0 && result.length > 0 && value[prevKeyIndex]){
+      } else if(tempKeyValue.length == 0 && result.length > 0 && value[prevKeyIndex] != undefined){
         tempString = result.concat(value[prevKeyIndex])
         index = 0
 
