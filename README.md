@@ -1,4 +1,4 @@
-To see demo : sambhavjain.github.io/old_phones_keypad/
+To see demo : https://sambhavjain.github.io/old_phones_keypad/
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
