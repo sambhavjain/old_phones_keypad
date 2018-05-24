@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { debounce } from './helperFunctions'
+import { config } from './config/index'
 
 const keypadObj = {
   0 : '0',
@@ -13,7 +14,7 @@ const keypadObj = {
   7 : 'pqrs7',
   8 : 'tuv8',
   9 : 'wxyz9',
- '*' : '*',
+  '*' : '*',
   '#' : '#'
 }
 class App extends Component {
@@ -26,7 +27,7 @@ class App extends Component {
       prevKeyIndex : 0,
       tempKeyValue : ''
     }
-    this.handleButtonClickAppend = debounce(this.handleButtonClickAppend, 1000)
+    this.handleButtonClickAppend = debounce(this.handleButtonClickAppend, config.DEBOUNCE_TIME)
   }  
 
   handleButtonClick = (e, key) => {
