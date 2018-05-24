@@ -24,7 +24,7 @@ class App extends Component {
     this.state = {
       result : '',
       prevKey : 0,
-      prevKeyIndex : 0,
+      currKeyValueIndex : 0,
       tempKeyValue : ''
     }
     this.handleButtonClickAppend = debounce(this.handleButtonClickAppend, config.DEBOUNCE_TIME)
@@ -35,25 +35,25 @@ class App extends Component {
 
     let result = this.state.result
     let tempKeyValue = this.state.tempKeyValue
-    let prevKeyIndex = Number(this.state.prevKeyIndex)
+    let currKeyValueIndex = Number(this.state.currKeyValueIndex)
     let prevKey = this.state.prevKey
     let tempString = '', index = 0;
     if(value && value.length > 0){
-      if(tempKeyValue.length > 0  && value[prevKeyIndex] && key == prevKey){
-        tempString = tempKeyValue.slice(0,-1).concat(value[prevKeyIndex])
-        index = prevKeyIndex + 1
+      if(tempKeyValue.length > 0  && value[currKeyValueIndex] && key == prevKey){
+        tempString = tempKeyValue.slice(0,-1).concat(value[currKeyValueIndex])
+        index = currKeyValueIndex + 1
       
       } else if(tempKeyValue.length > 0 && value[0] != undefined && key != prevKey){
         tempString = tempKeyValue.concat(value[0])
         index = 1
       
       } else if(tempKeyValue.length == 0 && result.length == 0){
-        tempString = value[prevKeyIndex]
-        index = prevKeyIndex + 1
+        tempString = value[currKeyValueIndex]
+        index = currKeyValueIndex + 1
 
-      } else if(tempKeyValue.length == 0 && result.length > 0 && value[prevKeyIndex] != undefined){
-        tempString = result.concat(value[prevKeyIndex])
-        index = 0
+      } else if(tempKeyValue.length == 0 && result.length > 0 && value[currKeyValueIndex] != undefined){
+        tempString = result.concat(value[currKeyValueIndex])
+        index = 1
 
       } else {
         if(result.length > tempKeyValue.length){
@@ -69,7 +69,7 @@ class App extends Component {
       }
       this.setState({
         prevKey : key,
-        prevKeyIndex : index,
+        currKeyValueIndex : index,
         tempKeyValue : tempString,
       })
       this.handleButtonClickAppend()
@@ -79,7 +79,7 @@ class App extends Component {
 
   handleButtonClickAppend = () => {
     if(this.state.tempKeyValue){
-      this.setState({prevKeyIndex : 0, tempKeyValue : '', result : this.state.tempKeyValue}, 
+      this.setState({currKeyValueIndex : 0, tempKeyValue : '', result : this.state.tempKeyValue}, 
         () => {
           console.log('resultant array----after debounce------------', this.state.result)   
       })  
